@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: trade_db
+      POSTGRES_USER: trade_user
+      POSTGRES_PASSWORD: trade_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  postgres_data:
