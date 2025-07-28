@@ -1,9 +1,12 @@
 package com.tradeserver.tradecapture.model;
 
-import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "trades")
@@ -16,9 +19,9 @@ public class Trade {
     private BigDecimal price;
     private String buySell;
     private String lifecycleState;
-
+    
     // Foreign keys - these will be enriched later by Trade Enrichment Service
-    private UUID clientId;
+    private String clientId;
     private UUID currencyId;
     private UUID instrumentId;
     private UUID ratingId;
@@ -66,6 +69,7 @@ public class Trade {
     public void setBuySell(String buySell) {
         this.buySell = buySell;
     }
+    
 
     public String getLifecycleState() {
         return lifecycleState;
@@ -75,11 +79,11 @@ public class Trade {
         this.lifecycleState = lifecycleState;
     }
 
-    public UUID getClientId() {
+    public String getClientId() {
         return clientId;
     }
 
-    public void setClientId(UUID clientId) {
+    public void setClientId(String clientId) {
         this.clientId = clientId;
     }
 

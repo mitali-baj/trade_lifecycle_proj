@@ -1,7 +1,7 @@
 @echo off
 
 REM Navigate to the trade-capture service directory
-cd ..\src\trade-capture
+cd src\trade-capture
 
 REM Clean and package the Spring Boot application
 call mvn clean install

@@ -1,5 +1,6 @@
 package com.tradeserver.tradecapture.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.math.BigDecimal;
 
 public class TradeDTO {
@@ -7,6 +8,8 @@ public class TradeDTO {
     private BigDecimal quantity;
     private BigDecimal price;
     private String buySell;
+    @JsonProperty("clientId")
+    private String clientId;
 
     // Getters and Setters
     public String getTicker() {
@@ -39,5 +42,13 @@ public class TradeDTO {
 
     public void setBuySell(String buySell) {
         this.buySell = buySell;
+    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 }

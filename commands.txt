@@ -1,0 +1,15 @@
+curl -X POST -H "Content-Type: application/json" -d "{\"ticker\":\"AAPL\", \"quantity\":100, \"price\":150.00, \"buySell\":\"BUY\", \"clientId\":\"Mitali_client\"}" http://localhost:8080/trades
+
+curl -X POST -H "Content-Type: application/json" -d "{\"ticker\":\"GOOG\", \"quantity\":100, \"price\":150.00, \"buySell\":\"SELL\", \"clientId\":\"Mitali_client\"}" http://localhost:8080/trades
+
+C:\trade-server>docker-compose exec db bash
+psql -U trade_user -d trade_db
+select * from trades;
+
+docker-compose up -d --no-deps --build trade-capture
+
+docker-compose down -v (for db schema change)
+
+docker-compose down
+
+I am passing client_id as string in below curl command and db schema as well as trade capture service code is modified to take input as client_id as string. however record is being inserted in db with client_id null. this is the curl command - curl -X POST -H "Content-Type: application/json" -d "{\"ticker\":\"AAPL\", \"quantity\":100, \"price\":150.00, \"buySell\":\"BUY\", \"clientId\":\"Mitali_client\"}" http://localhost:8080/trades

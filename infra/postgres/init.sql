@@ -2,7 +2,7 @@
 
 -- Create Clients table
 CREATE TABLE IF NOT EXISTS clients (
-    client_id UUID PRIMARY KEY,
+    client_id VARCHAR(255) PRIMARY KEY,
     client_name VARCHAR(255) NOT NULL,
     address VARCHAR(255),
     contact_info VARCHAR(255)
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS trades (
     lifecycle_state VARCHAR(50) NOT NULL, -- e.g., 'CAPTURED', 'ENRICHED', 'SETTLED'
     
     -- Foreign Keys (initially nullable, enriched later)
-    client_id UUID,
+    client_id VARCHAR(255),
     currency_id UUID,
     instrument_id UUID,
     rating_id UUID,
@@ -48,7 +48,6 @@ CREATE TABLE IF NOT EXISTS trades (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
 
-    FOREIGN KEY (client_id) REFERENCES clients(client_id),
     FOREIGN KEY (currency_id) REFERENCES currencies(currency_id),
     FOREIGN KEY (instrument_id) REFERENCES instruments(instrument_id),
     FOREIGN KEY (rating_id) REFERENCES ratings(rating_id)
@@ -75,8 +74,8 @@ ON CONFLICT (rating_value) DO UPDATE SET
     description = EXCLUDED.description;
 
 INSERT INTO clients (client_id, client_name, address, contact_info) VALUES
-    ('d0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'Client A', '123 Main St', 'clienta@example.com'),
-    ('d0eebc99-9c0b-4ef8-bb6d-6bb9bd380a12', 'Client B', '456 Oak Ave', 'clientb@example.com')
+    ('client_Trial', 'Client A', '123 Main St', 'clienta@example.com'),
+    ('client_Mitali', 'Client B', '456 Oak Ave', 'clientb@example.com')
 ON CONFLICT (client_id) DO UPDATE SET
     client_name = EXCLUDED.client_name,
     address = EXCLUDED.address,

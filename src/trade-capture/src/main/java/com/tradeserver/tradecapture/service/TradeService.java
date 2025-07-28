@@ -30,6 +30,7 @@ public class TradeService {
         trade.setPrice(tradeDTO.getPrice());
         trade.setBuySell(tradeDTO.getBuySell());
         trade.setLifecycleState("CAPTURED");
+        trade.setClientId(tradeDTO.getClientId());
         trade.setCreatedAt(OffsetDateTime.now());
         trade.setUpdatedAt(OffsetDateTime.now());
 
