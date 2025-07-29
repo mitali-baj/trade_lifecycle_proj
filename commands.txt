@@ -12,4 +12,4 @@ docker-compose down -v (for db schema change)
 
 docker-compose down
 
-I am passing client_id as string in below curl command and db schema as well as trade capture service code is modified to take input as client_id as string. however record is being inserted in db with client_id null. this is the curl command - curl -X POST -H "Content-Type: application/json" -d "{\"ticker\":\"AAPL\", \"quantity\":100, \"price\":150.00, \"buySell\":\"BUY\", \"clientId\":\"Mitali_client\"}" http://localhost:8080/trades
+PS C:\trade-server\src\trade-capture> mvn clean install
