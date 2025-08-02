@@ -3,6 +3,8 @@ package com.tradeserver.tradecapture.model;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 import java.util.UUID;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -13,23 +15,37 @@ import jakarta.persistence.Table;
 public class Trade {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long logId;
     private UUID tradeId;
     private String ticker;
     private BigDecimal quantity;
     private BigDecimal price;
     private String buySell;
-    private String lifecycleState;
-    
-    // Foreign keys - these will be enriched later by Trade Enrichment Service
+    private String ratingValue;
+    private String ratingDescription;
+    private String ratingAgency;
+    private String instrumentName;
+    private String instrumentType;
+    private String currencyCode;
+    private String currencyName;
     private String clientId;
-    private UUID currencyId;
-    private UUID instrumentId;
-    private UUID ratingId;
+    private String clientName;
+    private String lifecycleState;
 
     private OffsetDateTime createdAt;
     private OffsetDateTime updatedAt;
 
     // Getters and Setters
+    
+    public Long getLogId() {
+        return logId;
+    }
+
+    public void setLogId(Long logId) {
+        this.logId = logId;
+    }
+
     public UUID getTradeId() {
         return tradeId;
     }
@@ -69,14 +85,69 @@ public class Trade {
     public void setBuySell(String buySell) {
         this.buySell = buySell;
     }
-    
 
-    public String getLifecycleState() {
-        return lifecycleState;
+    public String getRatingValue() {
+        return ratingValue;
     }
 
-    public void setLifecycleState(String lifecycleState) {
-        this.lifecycleState = lifecycleState;
+    public void setRatingValue(String ratingValue) {
+        this.ratingValue = ratingValue;
+    }
+
+    public String getRatingDescription() {
+        return ratingDescription;
+    }
+
+    public void setRatingDescription(String ratingDescription) {
+        this.ratingDescription = ratingDescription;
+    }
+
+    public String getRatingAgency() {
+        return ratingAgency;
+    }
+
+    public void setRatingAgency(String ratingAgency) {
+        this.ratingAgency = ratingAgency;
+    }
+
+    public String getInstrumentName() {
+        return instrumentName;
+    }
+
+    public void setInstrumentName(String instrumentName) {
+        this.instrumentName = instrumentName;
+    }
+
+    public String getInstrumentType() {
+        return instrumentType;
+    }
+
+    public void setInstrumentType(String instrumentType) {
+        this.instrumentType = instrumentType;
+    }
+
+    public String getCurrencyCode() {
+        return currencyCode;
+    }
+
+    public void setCurrencyCode(String currencyCode) {
+        this.currencyCode = currencyCode;
+    }
+
+    public String getCurrencyName() {
+        return currencyName;
+    }
+
+    public void setCurrencyName(String currencyName) {
+        this.currencyName = currencyName;
+    }
+
+    public String getClientName() {
+        return clientName;
+    }
+
+    public void setClientName(String clientName) {
+        this.clientName = clientName;
     }
 
     public String getClientId() {
@@ -87,28 +158,12 @@ public class Trade {
         this.clientId = clientId;
     }
 
-    public UUID getCurrencyId() {
-        return currencyId;
+    public String getLifecycleState() {
+        return lifecycleState;
     }
 
-    public void setCurrencyId(UUID currencyId) {
-        this.currencyId = currencyId;
-    }
-
-    public UUID getInstrumentId() {
-        return instrumentId;
-    }
-
-    public void setInstrumentId(UUID instrumentId) {
-        this.instrumentId = instrumentId;
-    }
-
-    public UUID getRatingId() {
-        return ratingId;
-    }
-
-    public void setRatingId(UUID ratingId) {
-        this.ratingId = ratingId;
+    public void setLifecycleState(String lifecycleState) {
+        this.lifecycleState = lifecycleState;
     }
 
     public OffsetDateTime getCreatedAt() {

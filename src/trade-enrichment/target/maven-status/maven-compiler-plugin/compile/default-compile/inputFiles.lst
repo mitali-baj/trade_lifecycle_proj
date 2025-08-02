@@ -1,0 +1,12 @@
+C:\trade-server\src\trade-enrichment\src\main\java\com\tradeserver\tradeenrichment\model\Client.java
+C:\trade-server\src\trade-enrichment\src\main\java\com\tradeserver\tradeenrichment\model\Currencies.java
+C:\trade-server\src\trade-enrichment\src\main\java\com\tradeserver\tradeenrichment\model\Instrument.java
+C:\trade-server\src\trade-enrichment\src\main\java\com\tradeserver\tradeenrichment\model\Rating.java
+C:\trade-server\src\trade-enrichment\src\main\java\com\tradeserver\tradeenrichment\model\Trade.java
+C:\trade-server\src\trade-enrichment\src\main\java\com\tradeserver\tradeenrichment\repository\ClientRepository.java
+C:\trade-server\src\trade-enrichment\src\main\java\com\tradeserver\tradeenrichment\repository\CurrenciesRepository.java
+C:\trade-server\src\trade-enrichment\src\main\java\com\tradeserver\tradeenrichment\repository\InstrumentRepository.java
+C:\trade-server\src\trade-enrichment\src\main\java\com\tradeserver\tradeenrichment\repository\RatingRepository.java
+C:\trade-server\src\trade-enrichment\src\main\java\com\tradeserver\tradeenrichment\repository\TradeRepository.java
+C:\trade-server\src\trade-enrichment\src\main\java\com\tradeserver\tradeenrichment\service\TradeEnrichmentService.java
+C:\trade-server\src\trade-enrichment\src\main\java\com\tradeserver\tradeenrichment\TradeEnrichmentApplication.java

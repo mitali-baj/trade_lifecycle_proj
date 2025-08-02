@@ -1,4 +1,9 @@
 -- infra/postgres/init.sql
+-- DROP TABLE IF EXISTS trades;
+-- DROP TABLE IF EXISTS ratings;
+-- DROP TABLE IF EXISTS instruments;
+-- DROP TABLE IF EXISTS currencies;
+-- DROP TABLE IF EXISTS clients;
 
 -- Create Clients table
 CREATE TABLE IF NOT EXISTS clients (
@@ -10,68 +15,84 @@ CREATE TABLE IF NOT EXISTS clients (
 
 -- Create Currencies table
 CREATE TABLE IF NOT EXISTS currencies (
-    currency_id UUID PRIMARY KEY,
-    currency_code VARCHAR(3) UNIQUE NOT NULL,
+    ticker VARCHAR(10) PRIMARY KEY,
+    currency_code VARCHAR(3) NOT NULL,
     currency_name VARCHAR(255)
 );
 
 -- Create Instruments table
 CREATE TABLE IF NOT EXISTS instruments (
-    instrument_id UUID PRIMARY KEY,
-    ticker VARCHAR(10) UNIQUE NOT NULL,
+    ticker VARCHAR(10) PRIMARY KEY,
     instrument_name VARCHAR(255),
     instrument_type VARCHAR(50)
 );
 
 -- Create Ratings table
 CREATE TABLE IF NOT EXISTS ratings (
-    rating_id UUID PRIMARY KEY,
-    rating_value VARCHAR(50) UNIQUE NOT NULL,
-    description VARCHAR(255)
+    ticker VARCHAR(10) PRIMARY KEY,
+    rating_value VARCHAR(50) NOT NULL,
+    rating_description VARCHAR(255),
+    rating_agency VARCHAR(255)
 );
 
 -- Create Trades table
 CREATE TABLE IF NOT EXISTS trades (
-    trade_id UUID PRIMARY KEY,
+    log_id SERIAL PRIMARY KEY,
+    trade_id UUID NOT NULL,
     ticker VARCHAR(10) NOT NULL,
     quantity DECIMAL(18, 4) NOT NULL,
     price DECIMAL(18, 4) NOT NULL,
-    buy_sell VARCHAR(4) NOT NULL, -- 'BUY' or 'SELL'
-    lifecycle_state VARCHAR(50) NOT NULL, -- e.g., 'CAPTURED', 'ENRICHED', 'SETTLED'
-    
-    -- Foreign Keys (initially nullable, enriched later)
+    buy_sell VARCHAR(4) NOT NULL, 
+    rating_value VARCHAR(50),
+    rating_description VARCHAR(255),
+    rating_agency VARCHAR(255),
+    instrument_name VARCHAR(255),
+    instrument_type VARCHAR(50),
+    currency_code VARCHAR(3),
+    currency_name VARCHAR(255),
     client_id VARCHAR(255),
-    currency_id UUID,
-    instrument_id UUID,
-    rating_id UUID,
+    client_name VARCHAR(255),
+    -- 'BUY' or 'SELL'
+    lifecycle_state VARCHAR(50) NOT NULL, -- e.g., 'CAPTURED', 'ENRICHED', 'SETTLED'
 
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-
-    FOREIGN KEY (currency_id) REFERENCES currencies(currency_id),
-    FOREIGN KEY (instrument_id) REFERENCES instruments(instrument_id),
-    FOREIGN KEY (rating_id) REFERENCES ratings(rating_id)
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
 -- Add some initial reference data (optional, but good for testing)
-INSERT INTO currencies (currency_id, currency_code, currency_name) VALUES
-    ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'USD', 'United States Dollar'),
-    ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a12', 'EUR', 'Euro')
-ON CONFLICT (currency_code) DO UPDATE SET
+INSERT INTO currencies (ticker, currency_code, currency_name) VALUES
+    ('GOOG', 'USD', 'United States Dollar'),
+    ('IBM', 'USD', 'United States Dollar'),
+    ('MSFT', 'USD', 'United States Dollar'),
+    ('AAPL', 'USD', 'United States Dollar'),
+    ('TSLA', 'USD', 'United States Dollar'),
+    ('UL', 'JPY', 'Japanese Yen'),
+    ('WMT', 'EUR', 'Euro')
+ON CONFLICT (ticker) DO UPDATE SET
     currency_name = EXCLUDED.currency_name;
 
-INSERT INTO instruments (instrument_id, ticker, instrument_name, instrument_type) VALUES
-    ('b0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'AAPL', 'Apple Inc.', 'Equity'),
-    ('b0eebc99-9c0b-4ef8-bb6d-6bb9bd380a12', 'GOOGL', 'Alphabet Inc.', 'Equity')
+INSERT INTO instruments (ticker, instrument_name, instrument_type) VALUES
+    ('GOOG', 'Alphabet Inc.', 'Tech Stock'),
+    ('IBM', 'International Business Machines Corporation', 'Tech Stock'),
+    ('MSFT', 'Microsoft Corporation', 'Tech Stock'),
+    ('AAPL', 'Apple Inc.', 'Tech Stock'),
+    ('TSLA', 'Tesla Inc.', 'Automotive Stock'),
+    ('UL', 'Unilever PLC', 'Consumer Goods Stock'),
+    ('WMT', 'Walmart Inc.', 'Retail Stock')
 ON CONFLICT (ticker) DO UPDATE SET
     instrument_name = EXCLUDED.instrument_name,
     instrument_type = EXCLUDED.instrument_type;
 
-INSERT INTO ratings (rating_id, rating_value, description) VALUES
-    ('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'AAA', 'Highest quality, lowest risk'),
-    ('c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a12', 'BBB', 'Medium quality, moderate risk')
-ON CONFLICT (rating_value) DO UPDATE SET
-    description = EXCLUDED.description;
+INSERT INTO ratings (ticker, rating_value, rating_description, rating_agency) VALUES
+    ('GOOG', 'AAA', 'Highest quality, lowest risk','S&P'),
+    ('IBM', 'AA', 'High quality, low risk', 'S&P'),
+    ('MSFT', 'A+', 'Upper medium quality, low risk', 'S&P'),
+    ('AAPL', 'A', 'Upper medium quality, moderate risk', 'S&P'),
+    ('TSLA', 'BBB+', 'Medium quality, moderate risk', 'S&P'),
+    ('UL', 'BBB', 'Medium quality, moderate risk', 'Moodys'),
+    ('WMT', 'BBB-', 'Medium quality, moderate risk', 'Fitch')
+ON CONFLICT (ticker) DO UPDATE SET
+    rating_description = EXCLUDED.rating_description;
 
 INSERT INTO clients (client_id, client_name, address, contact_info) VALUES
     ('client_Trial', 'Client A', '123 Main St', 'clienta@example.com'),

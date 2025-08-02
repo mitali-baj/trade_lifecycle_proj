@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tradeserver.tradecapture.model.Trade;
-import com.tradeserver.tradecapture.model.TradeDTO;
 import com.tradeserver.tradecapture.service.TradeService;
 
 @RestController
@@ -24,9 +23,9 @@ public class TradeController {
 
     @PostMapping
     @org.springframework.web.bind.annotation.CrossOrigin(origins = "*")
-    public ResponseEntity<Trade> captureTrade(@RequestBody TradeDTO tradeDTO) {
-        System.out.println("Received trade DTO: " + tradeDTO);
-        Trade capturedTrade = tradeService.captureAndPublishTrade(tradeDTO);
+    public ResponseEntity<Trade> captureTrade(@RequestBody Trade trade) {
+        System.out.println("Received trade: " + trade);
+        Trade capturedTrade = tradeService.captureAndPublishTrade(trade);
         return ResponseEntity.ok(capturedTrade);
     }
 

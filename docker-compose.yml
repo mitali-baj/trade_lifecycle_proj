@@ -73,5 +73,24 @@ services:
       SPRING_DATASOURCE_PASSWORD: trade_password
       SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
 
+  trade-enrichment:
+    image: trade-enrichment:latest
+    container_name: trade_enrichment_service
+    build:
+      context: ./src/trade-enrichment
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    depends_on:
+      kafka:
+        condition: service_healthy
+      db:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/trade_db
+      SPRING_DATASOURCE_USERNAME: trade_user
+      SPRING_DATASOURCE_PASSWORD: trade_password
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+
 volumes:
   postgres_data:

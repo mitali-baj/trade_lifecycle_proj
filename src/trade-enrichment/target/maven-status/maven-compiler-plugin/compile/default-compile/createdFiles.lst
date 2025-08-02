@@ -1,0 +1,12 @@
+com\tradeserver\tradeenrichment\repository\CurrenciesRepository.class
+com\tradeserver\tradeenrichment\repository\InstrumentRepository.class
+com\tradeserver\tradeenrichment\model\Instrument.class
+com\tradeserver\tradeenrichment\model\Trade.class
+com\tradeserver\tradeenrichment\model\Currencies.class
+com\tradeserver\tradeenrichment\service\TradeEnrichmentService.class
+com\tradeserver\tradeenrichment\model\Rating.class
+com\tradeserver\tradeenrichment\repository\ClientRepository.class
+com\tradeserver\tradeenrichment\repository\TradeRepository.class
+com\tradeserver\tradeenrichment\model\Client.class
+com\tradeserver\tradeenrichment\repository\RatingRepository.class
+com\tradeserver\tradeenrichment\TradeEnrichmentApplication.class
