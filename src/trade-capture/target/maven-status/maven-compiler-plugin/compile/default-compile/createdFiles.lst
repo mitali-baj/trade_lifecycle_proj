@@ -1,6 +1,7 @@
 com\tradeserver\tradecapture\TradeCaptureApplication.class
 com\tradeserver\tradecapture\repository\TradeRepository.class
 com\tradeserver\tradecapture\TradeController.class
+com\tradeserver\tradecapture\service\LifeCycleService.class
 com\tradeserver\tradecapture\model\TradeDTO.class
 com\tradeserver\tradecapture\model\Trade.class
 com\tradeserver\tradecapture\service\TradeService.class

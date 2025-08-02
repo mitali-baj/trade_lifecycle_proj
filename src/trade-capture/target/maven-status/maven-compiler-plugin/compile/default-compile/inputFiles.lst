@@ -1,6 +1,7 @@
 C:\trade-server\src\trade-capture\src\main\java\com\tradeserver\tradecapture\model\Trade.java
 C:\trade-server\src\trade-capture\src\main\java\com\tradeserver\tradecapture\model\TradeDTO.java
 C:\trade-server\src\trade-capture\src\main\java\com\tradeserver\tradecapture\repository\TradeRepository.java
+C:\trade-server\src\trade-capture\src\main\java\com\tradeserver\tradecapture\service\LifeCycleService.java
 C:\trade-server\src\trade-capture\src\main\java\com\tradeserver\tradecapture\service\TradeService.java
 C:\trade-server\src\trade-capture\src\main\java\com\tradeserver\tradecapture\TradeCaptureApplication.java
 C:\trade-server\src\trade-capture\src\main\java\com\tradeserver\tradecapture\TradeController.java
