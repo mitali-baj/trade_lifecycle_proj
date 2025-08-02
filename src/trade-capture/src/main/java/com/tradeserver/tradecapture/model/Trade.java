@@ -32,6 +32,8 @@ public class Trade {
     private String clientId;
     private String clientName;
     private String lifecycleState;
+    private String validationStatus;
+    private String settlementStatus;
 
     private OffsetDateTime createdAt;
     private OffsetDateTime updatedAt;
@@ -156,6 +158,22 @@ public class Trade {
 
     public void setClientId(String clientId) {
         this.clientId = clientId;
+    }
+
+     public String getValidationStatus() {
+        return validationStatus;
+    }
+
+    public void setValidationStatus(String validationStatus) {
+        this.validationStatus = validationStatus;
+    }
+
+    public String getSettlementStatus() {
+        return settlementStatus;
+    }
+
+    public void setSettlementStatus(String settlementStatus) {
+        this.settlementStatus = settlementStatus;
     }
 
     public String getLifecycleState() {

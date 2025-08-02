@@ -1,0 +1,12 @@
+com\tradeserver\tradevalidationsettlement\model\Trade.class
+com\tradeserver\tradevalidationsettlement\repository\CurrenciesRepository.class
+com\tradeserver\tradevalidationsettlement\repository\InstrumentRepository.class
+com\tradeserver\tradevalidationsettlement\repository\TradeRepository.class
+com\tradeserver\tradevalidationsettlement\service\TradeValidationSettlementService.class
+com\tradeserver\tradevalidationsettlement\repository\ClientRepository.class
+com\tradeserver\tradevalidationsettlement\model\Rating.class
+com\tradeserver\tradevalidationsettlement\TradeValidationSettlementApplication.class
+com\tradeserver\tradevalidationsettlement\model\Instrument.class
+com\tradeserver\tradevalidationsettlement\model\Currencies.class
+com\tradeserver\tradevalidationsettlement\model\Client.class
+com\tradeserver\tradevalidationsettlement\repository\RatingRepository.class

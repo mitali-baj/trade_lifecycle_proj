@@ -1,0 +1,12 @@
+C:\trade-server\src\trade-validation-settlement\src\main\java\com\tradeserver\tradevalidationsettlement\model\Client.java
+C:\trade-server\src\trade-validation-settlement\src\main\java\com\tradeserver\tradevalidationsettlement\model\Currencies.java
+C:\trade-server\src\trade-validation-settlement\src\main\java\com\tradeserver\tradevalidationsettlement\model\Instrument.java
+C:\trade-server\src\trade-validation-settlement\src\main\java\com\tradeserver\tradevalidationsettlement\model\Rating.java
+C:\trade-server\src\trade-validation-settlement\src\main\java\com\tradeserver\tradevalidationsettlement\model\Trade.java
+C:\trade-server\src\trade-validation-settlement\src\main\java\com\tradeserver\tradevalidationsettlement\repository\ClientRepository.java
+C:\trade-server\src\trade-validation-settlement\src\main\java\com\tradeserver\tradevalidationsettlement\repository\CurrenciesRepository.java
+C:\trade-server\src\trade-validation-settlement\src\main\java\com\tradeserver\tradevalidationsettlement\repository\InstrumentRepository.java
+C:\trade-server\src\trade-validation-settlement\src\main\java\com\tradeserver\tradevalidationsettlement\repository\RatingRepository.java
+C:\trade-server\src\trade-validation-settlement\src\main\java\com\tradeserver\tradevalidationsettlement\repository\TradeRepository.java
+C:\trade-server\src\trade-validation-settlement\src\main\java\com\tradeserver\tradevalidationsettlement\service\TradeValidationSettlementService.java
+C:\trade-server\src\trade-validation-settlement\src\main\java\com\tradeserver\tradevalidationsettlement\TradeValidationSettlementApplication.java

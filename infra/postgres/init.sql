@@ -52,6 +52,8 @@ CREATE TABLE IF NOT EXISTS trades (
     currency_name VARCHAR(255),
     client_id VARCHAR(255),
     client_name VARCHAR(255),
+    validation_status VARCHAR(255), -- e.g., 'VALIDATED', 'INVALID'
+    settlement_status VARCHAR(255), -- e.g., 'SETTLED', 'PENDING
     -- 'BUY' or 'SELL'
     lifecycle_state VARCHAR(50) NOT NULL, -- e.g., 'CAPTURED', 'ENRICHED', 'SETTLED'
 
