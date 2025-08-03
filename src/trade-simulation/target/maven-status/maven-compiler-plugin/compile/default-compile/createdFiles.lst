@@ -1,0 +1,8 @@
+com\tradeserver\tradesimulation\service\TradeForwardingService.class
+com\tradeserver\tradesimulation\config\WebSocketConfig.class
+com\tradeserver\tradesimulation\TradeSimulationApplication.class
+com\tradeserver\tradesimulation\controller\TradeController.class
+com\tradeserver\tradesimulation\model\PricesSimulation.class
+com\tradeserver\tradesimulation\service\TradeForwardingService$1.class
+com\tradeserver\tradesimulation\model\Simulation.class
+com\tradeserver\tradesimulation\service\PricesForwardingService.class
