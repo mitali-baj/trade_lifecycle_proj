@@ -97,7 +97,7 @@ public class PricesForwardingService {
                     String json = objectMapper.writeValueAsString(pricesSimulation);
                     System.out.println("Sending: " + json);
                     messagingTemplate.convertAndSend("/topic/prices", json);
-                    Thread.sleep(1000);
+                    Thread.sleep(500);
                 } catch (JsonProcessingException e) {
                     System.err.println("Failed to serialize simulation for " + ticker + ": " + e.getMessage());
                 }
